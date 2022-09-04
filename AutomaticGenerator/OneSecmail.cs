@@ -4,18 +4,18 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using AutomaticGenerator.Models.Responses.OneSecmail;
+using AutomaticGenerator.Models.Responses.OneSecMail;
 using Newtonsoft.Json;
 
 namespace AutomaticGenerator
 {
-    class OneSecmail
+    class OneSecMail
     {
-        protected string baseUrl = "https://www.1secmail.com/api/v1/";
+        protected string baseUrl = "https://www.1secmail.com";
 
         public readonly HttpClient client;
 
-        public OneSecmail()
+        public OneSecMail()
         {
             //https://github.com/riz4d/TempMail-Bot/blob/main/main.py
 
@@ -27,7 +27,7 @@ namespace AutomaticGenerator
             var jsonString = JsonConvert.SerializeObject(new { });
              
             HttpContent contentPost = new StringContent(jsonString, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = client.PostAsync(baseUrl + "?action=genRandomMailbox&count=1", contentPost).Result;
+            HttpResponseMessage response = client.PostAsync(baseUrl + "/api/v1/?action=genRandomMailbox&count=1", contentPost).Result;
 
             var responseBody = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<List<string>>(responseBody);
@@ -40,7 +40,7 @@ namespace AutomaticGenerator
 
         public List<Message> GetMessages(string login = "demo ", string domain = "1secmail.com")
         {
-            HttpResponseMessage response = client.GetAsync(baseUrl + "?action=getMessages&login="+ login + "&domain="+ domain).Result;
+            HttpResponseMessage response = client.GetAsync(baseUrl + "/api/v1/?action=getMessages&login=" + login + "&domain="+ domain).Result;
 
             var responseBody = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<List<Message>>(responseBody);
@@ -50,7 +50,7 @@ namespace AutomaticGenerator
 
         public Message GetMessage(string login = "demo ", string domain = "1secmail.com", int id = 639)
         {
-            HttpResponseMessage response = client.GetAsync(baseUrl + "?action=readMessage&login=" + login + "&domain=" + domain + "&id=" + id).Result;
+            HttpResponseMessage response = client.GetAsync(baseUrl + "/api/v1/?action=readMessage&login=" + login + "&domain=" + domain + "&id=" + id).Result;
 
             var responseBody = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<Message>(responseBody);

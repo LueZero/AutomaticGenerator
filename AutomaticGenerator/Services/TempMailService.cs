@@ -8,16 +8,16 @@ namespace AutomaticGenerator.Services
 {
     class TempMailService
     {
-        private OneSecmail _oneSecmail;
+        private OneSecMail _oneSecMail;
 
-        public TempMailService(OneSecmail oneSecmail)
+        public TempMailService(OneSecMail oneSecMail)
         {
-            _oneSecmail = oneSecmail;
+            _oneSecMail = oneSecMail;
         }
 
         public string GetMailbox()
         {
-            return _oneSecmail.GetMailbox();
+            return _oneSecMail.GetMailbox();
         }
     }
 }
