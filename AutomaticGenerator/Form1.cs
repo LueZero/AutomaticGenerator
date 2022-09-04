@@ -37,6 +37,9 @@ namespace AutomaticGenerator
             dataGridView1.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void createAccount_Click(object sender, EventArgs e)
@@ -45,15 +48,16 @@ namespace AutomaticGenerator
             var index = dataGridView1.Rows.Add();
 
             dataGridView1.Rows[index].Cells["sort"].Value = index + 1;
-
             dataGridView1.Rows[index].Cells["lastname"].Value = "劉";
             dataGridView1.Rows[index].Cells["firstName"].Value = "倫德";
-
             dataGridView1.Rows[index].Cells["email"].Value = mails;
             dataGridView1.Rows[index].Cells["account"].Value = mails;
             dataGridView1.Rows[index].Cells["password"].Value = Mmeber.RandomString(20, true);
             dataGridView1.Rows[index].Cells["cellPhone"].Value = "0912345678";
             dataGridView1.Rows[index].Cells["register"].Value = "註冊";
+            dataGridView1.Rows[index].Cells["year"].Value = "1993";
+            dataGridView1.Rows[index].Cells["month"].Value = "11";
+            dataGridView1.Rows[index].Cells["day"].Value = "10";
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -61,10 +65,8 @@ namespace AutomaticGenerator
             if (dataGridView1.CurrentCell == null || dataGridView1.CurrentCell.Value == null || e.RowIndex == -1) 
                 return;
 
-            if (e.ColumnIndex == 8)
+            if (e.ColumnIndex == 11)
             {
-                // MessageBox.Show(dataGridView1.CurrentCell.Value.ToString());
-
                 var DeviceDriver = ChromeDriverService.CreateDefaultService();
                 DeviceDriver.HideCommandPromptWindow = true;
 
@@ -78,15 +80,14 @@ namespace AutomaticGenerator
 
                 string lastname = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
                 string firstname = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
-                string sex = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
-
-                sex = "1";
-                if (sex == "男生")
-                    sex = "2";
-
+                string sex = (Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[3].Value) == "男生" ? "1" : "2");
                 string account = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
                 string email = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
                 string password = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
+
+                string year = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[8].Value);
+                string month = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[9].Value);
+                string day = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[10].Value);
 
                 _driver.FindElement(By.XPath("//input[@name='lastname']")).SendKeys(lastname);
                 _driver.FindElement(By.XPath("//input[@name='firstname']")).SendKeys(firstname);
@@ -96,21 +97,21 @@ namespace AutomaticGenerator
                 _driver.FindElement(By.XPath("//input[@name='reg_passwd__']")).SendKeys(password);
 
                 IWebElement yearElement = _driver.FindElement(By.XPath("//select[@id='year']"));
-                SelectElement year = new SelectElement(yearElement);
-                year.SelectByValue("1993");
+                SelectElement yearSelectElement = new SelectElement(yearElement);
+                yearSelectElement.SelectByValue(year);
 
                 Thread.Sleep(1000);
                 IWebElement monthElement = _driver.FindElement(By.XPath("//select[@id='month']"));
-                SelectElement month = new SelectElement(monthElement);
-                month.SelectByValue("11");
+                SelectElement monthSelectElement = new SelectElement(monthElement);
+                monthSelectElement.SelectByValue(month);
 
                 Thread.Sleep(1000);
                 IWebElement dayElement = _driver.FindElement(By.XPath("//select[@id='day']"));
-                SelectElement day = new SelectElement(dayElement);
-                day.SelectByValue("10");
+                SelectElement daySelectElement = new SelectElement(dayElement);
+                daySelectElement.SelectByValue(day);
 
                 Thread.Sleep(1000);
-                IWebElement sexElement = _driver.FindElement(By.XPath("//input[@name='sex'][@value='2']"));
+                IWebElement sexElement = _driver.FindElement(By.XPath("//input[@name='sex'][@value='"+ sex + "']"));
                 sexElement.Click();
 
                 Thread.Sleep(1000);

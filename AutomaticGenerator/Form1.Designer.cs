@@ -30,6 +30,7 @@ namespace AutomaticGenerator
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.createAccount = new System.Windows.Forms.Button();
             this.sort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,8 +39,10 @@ namespace AutomaticGenerator
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cellPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.month = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.register = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.createAccount = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,15 +63,32 @@ namespace AutomaticGenerator
             this.email,
             this.password,
             this.cellPhone,
+            this.year,
+            this.month,
+            this.day,
             this.register});
             this.dataGridView1.Location = new System.Drawing.Point(-1, -1);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1181, 529);
+            this.dataGridView1.Size = new System.Drawing.Size(1553, 529);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // createAccount
+            // 
+            this.createAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.createAccount.Location = new System.Drawing.Point(0, 528);
+            this.createAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.createAccount.Name = "createAccount";
+            this.createAccount.Size = new System.Drawing.Size(1552, 122);
+            this.createAccount.TabIndex = 1;
+            this.createAccount.Text = "自動產生帳戶資訊";
+            this.createAccount.UseVisualStyleBackColor = true;
+            this.createAccount.Click += new System.EventHandler(this.createAccount_Click);
             // 
             // sort
             // 
@@ -129,6 +149,27 @@ namespace AutomaticGenerator
             this.cellPhone.Name = "cellPhone";
             this.cellPhone.Width = 125;
             // 
+            // year
+            // 
+            this.year.HeaderText = "出生日期(年)";
+            this.year.MinimumWidth = 6;
+            this.year.Name = "year";
+            this.year.Width = 125;
+            // 
+            // month
+            // 
+            this.month.HeaderText = "出生日期(月)";
+            this.month.MinimumWidth = 6;
+            this.month.Name = "month";
+            this.month.Width = 125;
+            // 
+            // day
+            // 
+            this.day.HeaderText = "出生日期(天)";
+            this.day.MinimumWidth = 6;
+            this.day.Name = "day";
+            this.day.Width = 125;
+            // 
             // register
             // 
             this.register.HeaderText = "註冊";
@@ -139,25 +180,11 @@ namespace AutomaticGenerator
             this.register.Text = "註冊";
             this.register.Width = 125;
             // 
-            // createAccount
-            // 
-            this.createAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.createAccount.Location = new System.Drawing.Point(0, 528);
-            this.createAccount.Margin = new System.Windows.Forms.Padding(4);
-            this.createAccount.Name = "createAccount";
-            this.createAccount.Size = new System.Drawing.Size(1180, 122);
-            this.createAccount.TabIndex = 1;
-            this.createAccount.Text = "自動產生帳戶資訊";
-            this.createAccount.UseVisualStyleBackColor = true;
-            this.createAccount.Click += new System.EventHandler(this.createAccount_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 651);
+            this.ClientSize = new System.Drawing.Size(1554, 651);
             this.Controls.Add(this.createAccount);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -180,6 +207,9 @@ namespace AutomaticGenerator
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn password;
         private System.Windows.Forms.DataGridViewTextBoxColumn cellPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn year;
+        private System.Windows.Forms.DataGridViewTextBoxColumn month;
+        private System.Windows.Forms.DataGridViewTextBoxColumn day;
         private System.Windows.Forms.DataGridViewButtonColumn register;
     }
 }
