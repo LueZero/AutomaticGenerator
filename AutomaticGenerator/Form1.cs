@@ -25,7 +25,7 @@ namespace AutomaticGenerator
         public Form1()
         {
             InitializeComponent();
-            _tempMailService = new TempMailService(new OneSecMail());
+            _tempMailService = new TempMailService();
 
             dataGridView1.AllowUserToResizeColumns = true;
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -44,7 +44,7 @@ namespace AutomaticGenerator
 
         private void createAccount_Click(object sender, EventArgs e)
         {
-            var mails = _tempMailService.GetMailbox();
+            var mails = _tempMailService.GetCryptogSecMailbox();
             var index = dataGridView1.Rows.Add();
 
             dataGridView1.Rows[index].Cells["sort"].Value = index + 1;

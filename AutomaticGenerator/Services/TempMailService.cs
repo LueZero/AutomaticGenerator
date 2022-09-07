@@ -10,14 +10,22 @@ namespace AutomaticGenerator.Services
     {
         private OneSecMail _oneSecMail;
 
-        public TempMailService(OneSecMail oneSecMail)
+        private CryptogMail _cryptogMail;
+
+        public TempMailService()
         {
-            _oneSecMail = oneSecMail;
+            _oneSecMail = new OneSecMail();
+            _cryptogMail = new CryptogMail();
         }
 
-        public string GetMailbox()
+        public string GetOneSecMailbox()
         {
             return _oneSecMail.GetMailbox();
+        }
+
+        public string GetCryptogSecMailbox()
+        {
+            return _cryptogMail.GetMailbox();
         }
     }
 }

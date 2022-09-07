@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutomaticGenerator.Models.Responses.CryptogMail;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -16,6 +18,20 @@ namespace AutomaticGenerator
         public CryptogMail()
         {
             client = new HttpClient();
+        }
+
+        public string GetMailbox()
+        {
+            return Mmeber.RandomString(20, true) + GetDomains().Domains.First();
+        }
+
+        public Domain GetDomains()
+        {
+            HttpResponseMessage response = client.GetAsync(baseUrl + "/api/domains.config.json").Result;
+
+            var responseBody = response.Content.ReadAsStringAsync().Result;
+
+            return JsonConvert.DeserializeObject<Domain>(responseBody);
         }
 
         public void GetEmails(string inbox = "agawagwagawg@vintomaper.com")
