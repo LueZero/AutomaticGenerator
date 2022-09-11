@@ -25,8 +25,12 @@ namespace AutomaticGenerator
         public Form1()
         {
             InitializeComponent();
+            InitializeGridView();
             _tempMailService = new TempMailService();
+        }
 
+        private void InitializeGridView()
+        {
             dataGridView1.AllowUserToResizeColumns = true;
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -71,7 +75,10 @@ namespace AutomaticGenerator
                 DeviceDriver.HideCommandPromptWindow = true;
 
                 ChromeOptions options = new ChromeOptions();
-                options.AddArguments("--disable-infobars");
+
+                options.AddArgument("--incognito");
+                options.AddArgument("disable-infobars");
+
                 _driver = new ChromeDriver(DeviceDriver, options);
 
                 _driver.Manage().Window.Maximize();
@@ -92,6 +99,7 @@ namespace AutomaticGenerator
                 _driver.FindElement(By.XPath("//input[@name='lastname']")).SendKeys(lastname);
                 _driver.FindElement(By.XPath("//input[@name='firstname']")).SendKeys(firstname);
                 _driver.FindElement(By.XPath("//input[@name='reg_email__']")).SendKeys(email);
+
                 Thread.Sleep(1000);
                 _driver.FindElement(By.XPath("//input[@name='reg_email_confirmation__']")).SendKeys(email);
                 _driver.FindElement(By.XPath("//input[@name='reg_passwd__']")).SendKeys(password);

@@ -22,30 +22,36 @@ namespace AutomaticGenerator
 
         public string GetMailbox()
         {
-            return Mmeber.RandomString(20, true) + GetDomains().Domains.First();
+            return Mmeber.RandomString(20, true) + GetDomains().First();
         }
 
-        public Domain GetDomains()
+        public List<string> GetDomains()
         {
             HttpResponseMessage response = client.GetAsync(baseUrl + "/api/domains.config.json").Result;
 
             var responseBody = response.Content.ReadAsStringAsync().Result;
 
-            return JsonConvert.DeserializeObject<Domain>(responseBody);
+            var domains = JsonConvert.DeserializeObject<Domain>(responseBody);
+
+            return domains.Domains;
         }
 
-        public void GetEmails(string inbox = "agawagwagawg@vintomaper.com")
+        public Messages GgetMessages(string inbox = "agawagwagawg@vintomaper.com")
         {
             HttpResponseMessage response = client.GetAsync(baseUrl + "/api/emails/?action=getMessages&inbox=" + inbox).Result;
 
             var responseBody = response.Content.ReadAsStringAsync().Result;
+
+            return JsonConvert.DeserializeObject<Messages>(responseBody);
         }
 
-        public void GetEmailContent(string id = "ee67caa8-0b87-4e29-9a88-616215670d20")
+        public string GetEmailContent(string id = "ee67caa8-0b87-4e29-9a88-616215670d20")
         {
             HttpResponseMessage response = client.GetAsync(baseUrl + "/api/emails/" + id).Result;
 
             var responseBody = response.Content.ReadAsStringAsync().Result;
+
+            return responseBody;
         }
     }
 }
