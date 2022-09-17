@@ -1,4 +1,5 @@
-﻿using AutomaticGenerator.Models.Responses.CryptogMail;
+﻿using AutomaticGenerator.Helpers;
+using AutomaticGenerator.Models.Responses.CryptogMail;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomaticGenerator
+namespace AutomaticGenerator.Mails
 {
     class CryptogMail
     {
@@ -22,7 +23,7 @@ namespace AutomaticGenerator
 
         public string GetMailbox()
         {
-            return Mmeber.RandomString(20, true) + GetDomains().First();
+            return Information.RandomString(20, true) + GetDomains().First();
         }
 
         public List<string> GetDomains()

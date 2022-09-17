@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomaticGenerator
+namespace AutomaticGenerator.Helpers
 {
-    class Mmeber
+    class Information
     {
         public static string RandomString(int size, bool lowerCase)
         {

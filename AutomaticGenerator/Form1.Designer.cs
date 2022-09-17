@@ -31,7 +31,7 @@ namespace AutomaticGenerator
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.createAccount = new System.Windows.Forms.Button();
-            this.sort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rowIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sex = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -55,7 +55,7 @@ namespace AutomaticGenerator
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sort,
+            this.rowIndex,
             this.lastName,
             this.firstName,
             this.sex,
@@ -90,95 +90,95 @@ namespace AutomaticGenerator
             this.createAccount.UseVisualStyleBackColor = true;
             this.createAccount.Click += new System.EventHandler(this.createAccount_Click);
             // 
-            // sort
+            // rowIndex
             // 
-            this.sort.HeaderText = "#";
-            this.sort.MinimumWidth = 6;
-            this.sort.Name = "sort";
-            this.sort.Width = 125;
+            this.rowIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.rowIndex.HeaderText = "#";
+            this.rowIndex.MinimumWidth = 6;
+            this.rowIndex.Name = "rowIndex";
             // 
             // lastName
             // 
+            this.lastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.lastName.HeaderText = "姓";
             this.lastName.MinimumWidth = 6;
             this.lastName.Name = "lastName";
-            this.lastName.Width = 125;
             // 
             // firstName
             // 
+            this.firstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.firstName.HeaderText = "名字";
             this.firstName.MinimumWidth = 6;
             this.firstName.Name = "firstName";
-            this.firstName.Width = 125;
             // 
             // sex
             // 
+            this.sex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.sex.HeaderText = "性別";
             this.sex.Items.AddRange(new object[] {
             "女生",
             "男生"});
             this.sex.MinimumWidth = 6;
             this.sex.Name = "sex";
-            this.sex.Width = 125;
             // 
             // account
             // 
+            this.account.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.account.HeaderText = "帳號";
             this.account.MinimumWidth = 6;
             this.account.Name = "account";
-            this.account.Width = 125;
             // 
             // email
             // 
+            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.email.HeaderText = "信箱";
             this.email.MinimumWidth = 6;
             this.email.Name = "email";
-            this.email.Width = 125;
             // 
             // password
             // 
+            this.password.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.password.HeaderText = "密碼";
             this.password.MinimumWidth = 6;
             this.password.Name = "password";
-            this.password.Width = 125;
             // 
             // cellPhone
             // 
+            this.cellPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cellPhone.HeaderText = "手機";
             this.cellPhone.MinimumWidth = 6;
             this.cellPhone.Name = "cellPhone";
-            this.cellPhone.Width = 125;
             // 
             // year
             // 
+            this.year.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.year.HeaderText = "出生日期(年)";
             this.year.MinimumWidth = 6;
             this.year.Name = "year";
-            this.year.Width = 125;
             // 
             // month
             // 
+            this.month.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.month.HeaderText = "出生日期(月)";
             this.month.MinimumWidth = 6;
             this.month.Name = "month";
-            this.month.Width = 125;
             // 
             // day
             // 
+            this.day.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.day.HeaderText = "出生日期(天)";
             this.day.MinimumWidth = 6;
             this.day.Name = "day";
-            this.day.Width = 125;
             // 
             // register
             // 
+            this.register.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.register.HeaderText = "註冊";
             this.register.MinimumWidth = 6;
             this.register.Name = "register";
             this.register.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.register.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.register.Text = "註冊";
-            this.register.Width = 125;
             // 
             // Form1
             // 
@@ -199,7 +199,7 @@ namespace AutomaticGenerator
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button createAccount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sort;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rowIndex;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
         private System.Windows.Forms.DataGridViewComboBoxColumn sex;

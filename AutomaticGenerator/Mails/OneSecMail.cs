@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using AutomaticGenerator.Models.Responses.OneSecMail;
 using Newtonsoft.Json;
 
-namespace AutomaticGenerator
+namespace AutomaticGenerator.Mails
 {
     class OneSecMail
     {

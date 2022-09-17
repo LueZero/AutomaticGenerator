@@ -1,12 +1,13 @@
-﻿using System;
+﻿using AutomaticGenerator.Mails;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomaticGenerator.Services
+namespace AutomaticGenerator
 {
-    class TempMailService
+    public class TempMailService
     {
         private OneSecMail _oneSecMail;
 
