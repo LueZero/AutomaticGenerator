@@ -18,24 +18,27 @@ namespace AutomaticGenerator.Generators
         {
         }
 
+        private User CreateUser()
+        {
+            return new User();
+        }
+
         public override User GenerateUser(int index)
         {
             var email = tempMailService.GetCryptogSecMailbox();
-            var user =  new User() 
-            {
-                Index = index,
-                Lastname = "lin",
-                FirstName = "luezero",
-                Sex = 1,
-                Email = email,
-                Account = email,
-                Password = Information.RandomString(20, true),
-                CellPhone = "0912345678",
-                Year = "1993",
-                Month = "11",
-                Day = "10",
-            };
-
+            var user = CreateUser();
+            user.Index = index;
+            user.Lastname = "lin";
+            user.FirstName = "luezero";
+            user.Sex = 1;
+            user.Email = email;
+            user.Account = email;
+            user.Password = Information.RandomString(20, true);
+            user.CellPhone = "0912345678";
+            user.Year = "1993";
+            user.Month = "11";
+            user.Day = "10";
+            
             Users.Add(user);
 
             return user;
