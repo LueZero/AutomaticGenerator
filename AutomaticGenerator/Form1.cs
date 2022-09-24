@@ -1,5 +1,6 @@
 ﻿using AutomaticGenerator.Generators;
 using AutomaticGenerator.Helpers;
+using RandomNameGeneratorLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,7 @@ namespace AutomaticGenerator
 
         private void Initialize()
         {
-            memberGenerator = new FaceBook();
+            memberGenerator = new FaceBook(new TempMailService(), new PersonNameGenerator(), new Chrome());
         }
 
         private void createAccount_Click(object sender, EventArgs e)

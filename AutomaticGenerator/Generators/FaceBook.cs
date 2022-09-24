@@ -3,6 +3,7 @@ using AutomaticGenerator.Models.Generators.FaceBook;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using RandomNameGeneratorLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,30 +15,30 @@ namespace AutomaticGenerator.Generators
 {
     public class FaceBook : MemberGenerator
     {
-        public FaceBook(): base()
+        public FaceBook(TempMailService tempMailService, PersonNameGenerator personNameGenerator, Chrome chrome) : base(tempMailService, personNameGenerator, chrome)
         {
-        }
-
-        private User CreateUser()
-        {
-            return new User();
         }
 
         public override User GenerateUser(int index)
         {
+            var lastname = personNameGenerator.GenerateRandomLastName();
+            var firstName = personNameGenerator.GenerateRandomFirstName();
+
             var email = tempMailService.GetCryptogSecMailbox();
             var user = CreateUser();
+            var date = GenerateRandomDate(18, 1993);
+
             user.Index = index;
-            user.Lastname = "lin";
-            user.FirstName = "luezero";
+            user.Lastname = lastname;
+            user.FirstName = firstName;
             user.Sex = 1;
             user.Email = email;
             user.Account = email;
             user.Password = Information.RandomString(20, true);
-            user.CellPhone = "0912345678";
-            user.Year = "1993";
-            user.Month = "11";
-            user.Day = "10";
+            user.CellPhone = "";
+            user.Year = date.Year.ToString();
+            user.Month = date.Month.ToString();
+            user.Day = date.Day.ToString();
             
             Users.Add(user);
 
