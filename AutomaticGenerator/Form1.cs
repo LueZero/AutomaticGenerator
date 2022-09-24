@@ -1,5 +1,6 @@
 ﻿using AutomaticGenerator.Generators;
 using AutomaticGenerator.Helpers;
+using AutomaticGenerator.Models.Generators.FaceBook;
 using RandomNameGeneratorLibrary;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,7 @@ namespace AutomaticGenerator
             dataGridView1.Rows[index].Cells["account"].Value = user.Account;
             dataGridView1.Rows[index].Cells["password"].Value = user.Password;
             dataGridView1.Rows[index].Cells["cellPhone"].Value = user.CellPhone;
+            dataGridView1.Rows[index].Cells["sex"].Value = user.Sex.ToString();
             dataGridView1.Rows[index].Cells["year"].Value = user.Year;
             dataGridView1.Rows[index].Cells["month"].Value = user.Month;
             dataGridView1.Rows[index].Cells["day"].Value = user.Day;

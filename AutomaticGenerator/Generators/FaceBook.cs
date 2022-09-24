@@ -25,13 +25,13 @@ namespace AutomaticGenerator.Generators
             var firstName = personNameGenerator.GenerateRandomFirstName();
 
             var email = tempMailService.GetCryptogSecMailbox();
-            var user = CreateUser();
+            var user = GenerateUser();
             var date = GenerateRandomDate(18, 1993);
 
             user.Index = index;
             user.Lastname = lastname;
             user.FirstName = firstName;
-            user.Sex = 1;
+            user.Sex = SexType.男性;
             user.Email = email;
             user.Account = email;
             user.Password = Information.RandomString(20, true);
@@ -39,7 +39,7 @@ namespace AutomaticGenerator.Generators
             user.Year = date.Year.ToString();
             user.Month = date.Month.ToString();
             user.Day = date.Day.ToString();
-            
+
             Users.Add(user);
 
             return user;
@@ -57,7 +57,7 @@ namespace AutomaticGenerator.Generators
 
             string lastname = user.Lastname;
             string firstname = user.FirstName;
-            string sex = (user.Sex == 1 ? "1" : "2");
+            int sex = (int)user.Sex;
             string account = user.Account;
             string email = user.Email;
             string password = user.Password;

@@ -19,15 +19,17 @@ namespace AutomaticGenerator.Generators
 
         protected Chrome chrome;
 
-        protected List<User> Users = new List<User>();
+        public List<User> Users;
 
         public MemberGenerator(TempMailService tempMailService, PersonNameGenerator personNameGenerator, Chrome chrome)
         {
             this.tempMailService = tempMailService;
             this.chrome = chrome;
             this.personNameGenerator = personNameGenerator;
+            this.Users = new List<User>();
         }
-        public User CreateUser()
+
+        public User GenerateUser()
         {
             return new User();
         }

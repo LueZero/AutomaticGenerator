@@ -116,8 +116,8 @@ namespace AutomaticGenerator
             this.sex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.sex.HeaderText = "性別";
             this.sex.Items.AddRange(new object[] {
-            "女生",
-            "男生"});
+            "女性",
+            "男性"});
             this.sex.MinimumWidth = 6;
             this.sex.Name = "sex";
             // 
