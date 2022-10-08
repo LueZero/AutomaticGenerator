@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace AutomaticGenerator
 {
-    public partial class Form1 : Form
+    public partial class Generator : Form
     {
         private MemberGenerator memberGenerator;
 
-        public Form1()
+        public Generator()
         {
             InitializeComponent();
             Initialize();

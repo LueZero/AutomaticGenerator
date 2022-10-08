@@ -1,7 +1,7 @@
 ﻿
 namespace AutomaticGenerator
 {
-    partial class Form1
+    partial class Generator
     {
         /// <summary>
         ///  Required designer variable.

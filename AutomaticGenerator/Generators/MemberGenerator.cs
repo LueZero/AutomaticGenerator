@@ -43,9 +43,7 @@ namespace AutomaticGenerator.Generators
             var randomDate = startDate.AddDays(gen.Next(range));
 
             if (((int)DateTime.Today.Year - (int)randomDate.Year) < limitAge)
-            {
                 return GenerateRandomDate(limitAge);
-            }
 
             return randomDate;
         }
