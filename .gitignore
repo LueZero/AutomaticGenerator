@@ -2,6 +2,10 @@
 ## Eclipse
 #################
 
+
+/AutomaticGenerator/Data/UserInformations.json
+
+
 *.pydevproject
 .project
 .metadata

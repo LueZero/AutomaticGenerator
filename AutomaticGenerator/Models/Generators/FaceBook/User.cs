@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutomaticGenerator.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace AutomaticGenerator.Models.Generators.FaceBook
     {
         public int Index { get; set; }
 
-        public string Lastname { get; set; }
+        public string LastName { get; set; }
 
         public string FirstName { get; set; }
 
@@ -30,12 +31,5 @@ namespace AutomaticGenerator.Models.Generators.FaceBook
         public string Month { get; set; }
 
         public string Day { get; set; }
-    }
-
-    public enum SexType
-    {
-        女性 = 1,
-
-        男性 = 2
     }
 }

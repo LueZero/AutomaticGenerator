@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace AutomaticGenerator
 {
-    public partial class Generator : Form
+    public partial class GeneratorForm : Form
     {
         private MemberGenerator memberGenerator;
 
-        public Generator()
+        public GeneratorForm()
         {
             InitializeComponent();
             Initialize();
@@ -26,6 +26,10 @@ namespace AutomaticGenerator
         private void Initialize()
         {
             memberGenerator = new FaceBook(new TempMailService(), new PersonNameGenerator(), new Chrome());
+
+            //JsonReader.Load("D:\\AutomaticGenerator\\AutomaticGenerator\\Data\\UserInformations.json");
+            //var json = JsonReader.Read();
+            //var result = JsonReader.ConvertJsonList<User>(json);
         }
 
         private void createAccount_Click(object sender, EventArgs e)
@@ -34,7 +38,7 @@ namespace AutomaticGenerator
             var user = memberGenerator.GenerateUser(index + 1);
           
             dataGridView1.Rows[index].Cells["rowIndex"].Value = user.Index;
-            dataGridView1.Rows[index].Cells["lastname"].Value = user.Lastname;
+            dataGridView1.Rows[index].Cells["lastName"].Value = user.LastName;
             dataGridView1.Rows[index].Cells["firstName"].Value = user.FirstName;
             dataGridView1.Rows[index].Cells["email"].Value = user.Email;
             dataGridView1.Rows[index].Cells["account"].Value = user.Account;
