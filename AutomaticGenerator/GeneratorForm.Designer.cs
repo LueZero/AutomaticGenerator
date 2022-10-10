@@ -30,7 +30,6 @@ namespace AutomaticGenerator
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.createAccount = new System.Windows.Forms.Button();
             this.rowIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +42,7 @@ namespace AutomaticGenerator
             this.month = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.register = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.createAccount = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,20 +75,6 @@ namespace AutomaticGenerator
             this.dataGridView1.Size = new System.Drawing.Size(1553, 529);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // createAccount
-            // 
-            this.createAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.createAccount.Location = new System.Drawing.Point(0, 528);
-            this.createAccount.Margin = new System.Windows.Forms.Padding(4);
-            this.createAccount.Name = "createAccount";
-            this.createAccount.Size = new System.Drawing.Size(1552, 122);
-            this.createAccount.TabIndex = 1;
-            this.createAccount.Text = "自動產生帳戶資訊";
-            this.createAccount.UseVisualStyleBackColor = true;
-            this.createAccount.Click += new System.EventHandler(this.createAccount_Click);
             // 
             // rowIndex
             // 
@@ -180,7 +166,21 @@ namespace AutomaticGenerator
             this.register.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.register.Text = "註冊";
             // 
-            // Form1
+            // createAccount
+            // 
+            this.createAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.createAccount.Location = new System.Drawing.Point(0, 528);
+            this.createAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.createAccount.Name = "createAccount";
+            this.createAccount.Size = new System.Drawing.Size(1552, 122);
+            this.createAccount.TabIndex = 1;
+            this.createAccount.Text = "自動產生帳戶資訊";
+            this.createAccount.UseVisualStyleBackColor = true;
+            this.createAccount.Click += new System.EventHandler(this.createAccount_Click);
+            // 
+            // GeneratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -188,8 +188,9 @@ namespace AutomaticGenerator
             this.Controls.Add(this.createAccount);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "GeneratorForm";
             this.Text = "控制台";
+            this.Load += new System.EventHandler(this.GeneratorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

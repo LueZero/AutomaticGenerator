@@ -23,7 +23,12 @@ namespace AutomaticGenerator
             return _streamReader.ReadToEnd();
         }
 
-        public  static List<T> ConvertJsonList<T>(string json)
+        public static async Task<string> ReadToEndAsync()
+        {
+            return await _streamReader.ReadToEndAsync();
+        }
+
+        public static List<T> ConvertJsonList<T>(string json)
         {
             return JsonConvert.DeserializeObject<List<T>>(json);
         }

@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutomaticGenerator
@@ -16,6 +17,8 @@ namespace AutomaticGenerator
     public partial class GeneratorForm : Form
     {
         private MemberGenerator memberGenerator;
+
+        private List<User> _users;
 
         public GeneratorForm()
         {
@@ -27,9 +30,15 @@ namespace AutomaticGenerator
         {
             memberGenerator = new FaceBook(new TempMailService(), new PersonNameGenerator(), new Chrome());
 
-            //JsonReader.Load("D:\\AutomaticGenerator\\AutomaticGenerator\\Data\\UserInformations.json");
-            //var json = JsonReader.Read();
-            //var result = JsonReader.ConvertJsonList<User>(json);
+            JsonReader.Load("D:\\AutomaticGenerator\\AutomaticGenerator\\Data\\UserInformations.json");
+        }
+
+        private async void GeneratorForm_Load(object sender, EventArgs e)
+        {
+            var readAsync = JsonReader.ReadToEndAsync();
+
+            // 取得非同步工作的結果。
+            _users = JsonReader.ConvertJsonList<User>(await readAsync);
         }
 
         private void createAccount_Click(object sender, EventArgs e)
@@ -58,6 +67,6 @@ namespace AutomaticGenerator
 
             if (e.ColumnIndex == 11)
                 memberGenerator.Register(e.RowIndex);
-        }
+        }       
     }
 }
