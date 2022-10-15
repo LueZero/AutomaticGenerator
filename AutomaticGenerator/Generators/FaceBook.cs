@@ -56,8 +56,8 @@ namespace AutomaticGenerator.Generators
             driver.Navigate().GoToUrl("https://www.facebook.com/campaign/landing.php");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
 
-            string lastname = user.LastName;
-            string firstname = user.FirstName;
+            string lastName = user.LastName;
+            string firstName = user.FirstName;
             int sex = (int)user.Sex;
             string account = user.Account;
             string email = user.Email;
@@ -66,8 +66,8 @@ namespace AutomaticGenerator.Generators
             string month = user.Month;
             string day = user.Day;
 
-            driver.FindElement(By.XPath("//input[@name='lastname']")).SendKeys(lastname);
-            driver.FindElement(By.XPath("//input[@name='firstname']")).SendKeys(firstname);
+            driver.FindElement(By.XPath("//input[@name='lastname']")).SendKeys(lastName);
+            driver.FindElement(By.XPath("//input[@name='firstname']")).SendKeys(firstName);
             driver.FindElement(By.XPath("//input[@name='reg_email__']")).SendKeys(email);
             Thread.Sleep(1000);
             driver.FindElement(By.XPath("//input[@name='reg_email_confirmation__']")).SendKeys(email);

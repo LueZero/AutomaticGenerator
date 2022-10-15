@@ -32,7 +32,7 @@ namespace AutomaticGenerator
             JsonReader.Load("D:\\AutomaticGenerator\\AutomaticGenerator\\Data\\UserInformation.json");
         }
 
-        private void InitializedgvGeneratorMember()
+        private void InitializeDgvGeneratorMember()
         {
             if (_users.Count != 0)
             {
@@ -62,7 +62,7 @@ namespace AutomaticGenerator
             // 取得非同步工作的結果。
             _users = JsonReader.ConvertJsonList<User>(await readAsync);
 
-            InitializedgvGeneratorMember();
+            InitializeDgvGeneratorMember();
         }
 
         private void createAccount_Click(object sender, EventArgs e)
