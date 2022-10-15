@@ -4,7 +4,7 @@
 
 ## 初始化
 
-Copy the UserInformation example to UserInformation.
+1. Copy the UserInformation example to UserInformation.
 
 ## UI 介面
 
