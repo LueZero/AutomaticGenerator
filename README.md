@@ -2,6 +2,10 @@
 
 自動產生器，針對 Facebook 網站進行自動化會員註冊。
 
+## 初始化
+
+Copy the UserInformation example to UserInformation.
+
 ## UI 介面
 
 ![image](Images/UI.PNG)

@@ -29,7 +29,7 @@ namespace AutomaticGenerator
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvGeneratorMember = new System.Windows.Forms.DataGridView();
             this.rowIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,18 +43,18 @@ namespace AutomaticGenerator
             this.day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.register = new System.Windows.Forms.DataGridViewButtonColumn();
             this.createAccount = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGeneratorMember)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvGeneratorMember
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvGeneratorMember.AllowUserToAddRows = false;
+            this.dgvGeneratorMember.AllowUserToDeleteRows = false;
+            this.dgvGeneratorMember.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvGeneratorMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGeneratorMember.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rowIndex,
             this.lastName,
             this.firstName,
@@ -67,14 +67,14 @@ namespace AutomaticGenerator
             this.month,
             this.day,
             this.register});
-            this.dataGridView1.Location = new System.Drawing.Point(-1, -1);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1553, 529);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dgvGeneratorMember.Location = new System.Drawing.Point(-1, -1);
+            this.dgvGeneratorMember.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvGeneratorMember.Name = "dgvGeneratorMember";
+            this.dgvGeneratorMember.RowHeadersWidth = 51;
+            this.dgvGeneratorMember.RowTemplate.Height = 25;
+            this.dgvGeneratorMember.Size = new System.Drawing.Size(1553, 529);
+            this.dgvGeneratorMember.TabIndex = 0;
+            this.dgvGeneratorMember.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGeneratorMember_CellClick);
             // 
             // rowIndex
             // 
@@ -186,19 +186,19 @@ namespace AutomaticGenerator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1554, 651);
             this.Controls.Add(this.createAccount);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvGeneratorMember);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GeneratorForm";
             this.Text = "控制台";
             this.Load += new System.EventHandler(this.GeneratorForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGeneratorMember)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvGeneratorMember;
         private System.Windows.Forms.Button createAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowIndex;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;

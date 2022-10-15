@@ -29,8 +29,30 @@ namespace AutomaticGenerator
         private void Initialize()
         {
             memberGenerator = new FaceBook(new TempMailService(), new PersonNameGenerator(), new Chrome());
+            JsonReader.Load("D:\\AutomaticGenerator\\AutomaticGenerator\\Data\\UserInformation.json");
+        }
 
-            JsonReader.Load("D:\\AutomaticGenerator\\AutomaticGenerator\\Data\\UserInformations.json");
+        private void InitializedgvGeneratorMember()
+        {
+            if (_users.Count != 0)
+            {
+                foreach (var user in _users)
+                {
+                    var index = dgvGeneratorMember.Rows.Add();
+                    dgvGeneratorMember.Rows[index].Cells["rowIndex"].Value = user.Index;
+                    dgvGeneratorMember.Rows[index].Cells["lastName"].Value = user.LastName;
+                    dgvGeneratorMember.Rows[index].Cells["firstName"].Value = user.FirstName;
+                    dgvGeneratorMember.Rows[index].Cells["email"].Value = user.Email;
+                    dgvGeneratorMember.Rows[index].Cells["account"].Value = user.Account;
+                    dgvGeneratorMember.Rows[index].Cells["password"].Value = user.Password;
+                    dgvGeneratorMember.Rows[index].Cells["cellPhone"].Value = user.CellPhone;
+                    dgvGeneratorMember.Rows[index].Cells["sex"].Value = user.Sex.ToString();
+                    dgvGeneratorMember.Rows[index].Cells["year"].Value = user.Year;
+                    dgvGeneratorMember.Rows[index].Cells["month"].Value = user.Month;
+                    dgvGeneratorMember.Rows[index].Cells["day"].Value = user.Day;
+                    dgvGeneratorMember.Rows[index].Cells["register"].Value = "註冊";
+                }
+            }
         }
 
         private async void GeneratorForm_Load(object sender, EventArgs e)
@@ -39,30 +61,32 @@ namespace AutomaticGenerator
 
             // 取得非同步工作的結果。
             _users = JsonReader.ConvertJsonList<User>(await readAsync);
+
+            InitializedgvGeneratorMember();
         }
 
         private void createAccount_Click(object sender, EventArgs e)
         {
-            var index = dataGridView1.Rows.Add();
+            var index = dgvGeneratorMember.Rows.Add();
             var user = memberGenerator.GenerateUser(index + 1);
-          
-            dataGridView1.Rows[index].Cells["rowIndex"].Value = user.Index;
-            dataGridView1.Rows[index].Cells["lastName"].Value = user.LastName;
-            dataGridView1.Rows[index].Cells["firstName"].Value = user.FirstName;
-            dataGridView1.Rows[index].Cells["email"].Value = user.Email;
-            dataGridView1.Rows[index].Cells["account"].Value = user.Account;
-            dataGridView1.Rows[index].Cells["password"].Value = user.Password;
-            dataGridView1.Rows[index].Cells["cellPhone"].Value = user.CellPhone;
-            dataGridView1.Rows[index].Cells["sex"].Value = user.Sex.ToString();
-            dataGridView1.Rows[index].Cells["year"].Value = user.Year;
-            dataGridView1.Rows[index].Cells["month"].Value = user.Month;
-            dataGridView1.Rows[index].Cells["day"].Value = user.Day;
-            dataGridView1.Rows[index].Cells["register"].Value = "註冊";
+
+            dgvGeneratorMember.Rows[index].Cells["rowIndex"].Value = user.Index;
+            dgvGeneratorMember.Rows[index].Cells["lastName"].Value = user.LastName;
+            dgvGeneratorMember.Rows[index].Cells["firstName"].Value = user.FirstName;
+            dgvGeneratorMember.Rows[index].Cells["email"].Value = user.Email;
+            dgvGeneratorMember.Rows[index].Cells["account"].Value = user.Account;
+            dgvGeneratorMember.Rows[index].Cells["password"].Value = user.Password;
+            dgvGeneratorMember.Rows[index].Cells["cellPhone"].Value = user.CellPhone;
+            dgvGeneratorMember.Rows[index].Cells["sex"].Value = user.Sex.ToString();
+            dgvGeneratorMember.Rows[index].Cells["year"].Value = user.Year;
+            dgvGeneratorMember.Rows[index].Cells["month"].Value = user.Month;
+            dgvGeneratorMember.Rows[index].Cells["day"].Value = user.Day;
+            dgvGeneratorMember.Rows[index].Cells["register"].Value = "註冊";
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvGeneratorMember_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.CurrentCell == null || dataGridView1.CurrentCell.Value == null || e.RowIndex == -1) 
+            if (dgvGeneratorMember.CurrentCell == null || dgvGeneratorMember.CurrentCell.Value == null || e.RowIndex == -1) 
                 return;
 
             if (e.ColumnIndex == 11)
