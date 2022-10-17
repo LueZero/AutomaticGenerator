@@ -190,6 +190,7 @@ namespace AutomaticGenerator
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GeneratorForm";
             this.Text = "控制台";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GeneratorForm_FormClosed);
             this.Load += new System.EventHandler(this.GeneratorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneratorMember)).EndInit();
             this.ResumeLayout(false);

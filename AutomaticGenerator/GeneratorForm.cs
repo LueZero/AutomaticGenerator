@@ -1,6 +1,7 @@
 ﻿using AutomaticGenerator.Generators;
 using AutomaticGenerator.Helpers;
 using AutomaticGenerator.Models.Generators.FaceBook;
+using Newtonsoft.Json;
 using RandomNameGeneratorLibrary;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace AutomaticGenerator
     {
         private MemberGenerator memberGenerator;
 
+        private JsonStream _jsonStream;
+
         private List<User> _users;
 
         public GeneratorForm()
@@ -29,7 +32,7 @@ namespace AutomaticGenerator
         private void Initialize()
         {
             memberGenerator = new FaceBook(new TempMailService(), new PersonNameGenerator(), new Chrome());
-            JsonReader.Load("D:\\AutomaticGenerator\\AutomaticGenerator\\Data\\UserInformation.json");
+            _jsonStream = new JsonStream("D:\\AutomaticGenerator\\AutomaticGenerator\\Data\\UserInformation.json");
         }
 
         private void InitializeDgvGeneratorMember()
@@ -57,10 +60,10 @@ namespace AutomaticGenerator
 
         private async void GeneratorForm_Load(object sender, EventArgs e)
         {
-            var readAsync = JsonReader.ReadToEndAsync();
+            var readAsync = _jsonStream.ReadToEndAsync();
 
             // 取得非同步工作的結果。
-            _users = JsonReader.ConvertJsonList<User>(await readAsync);
+            _users = _jsonStream.ConvertJsonList<User>(await readAsync);
 
             InitializeDgvGeneratorMember();
         }
@@ -82,6 +85,8 @@ namespace AutomaticGenerator
             dgvGeneratorMember.Rows[index].Cells["month"].Value = user.Month;
             dgvGeneratorMember.Rows[index].Cells["day"].Value = user.Day;
             dgvGeneratorMember.Rows[index].Cells["register"].Value = "註冊";
+
+            _users.Add(user);
         }
 
         private void dgvGeneratorMember_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -91,6 +96,11 @@ namespace AutomaticGenerator
 
             if (e.ColumnIndex == 11)
                 memberGenerator.Register(e.RowIndex);
-        }       
+        }
+
+        private void GeneratorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _jsonStream.Write(JsonConvert.SerializeObject(_users));
+        }
     }
 }
