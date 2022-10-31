@@ -30,6 +30,7 @@ namespace AutomaticGenerator
         private void InitializeComponent()
         {
             this.dgvGeneratorMember = new System.Windows.Forms.DataGridView();
+            this.createAccount = new System.Windows.Forms.Button();
             this.rowIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,7 +43,7 @@ namespace AutomaticGenerator
             this.month = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.register = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.createAccount = new System.Windows.Forms.Button();
+            this.deletion = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneratorMember)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,15 +67,30 @@ namespace AutomaticGenerator
             this.year,
             this.month,
             this.day,
-            this.register});
+            this.register,
+            this.deletion});
             this.dgvGeneratorMember.Location = new System.Drawing.Point(-1, -1);
             this.dgvGeneratorMember.Margin = new System.Windows.Forms.Padding(4);
             this.dgvGeneratorMember.Name = "dgvGeneratorMember";
             this.dgvGeneratorMember.RowHeadersWidth = 51;
             this.dgvGeneratorMember.RowTemplate.Height = 25;
-            this.dgvGeneratorMember.Size = new System.Drawing.Size(1553, 529);
+            this.dgvGeneratorMember.Size = new System.Drawing.Size(1653, 529);
             this.dgvGeneratorMember.TabIndex = 0;
             this.dgvGeneratorMember.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGeneratorMember_CellClick);
+            // 
+            // createAccount
+            // 
+            this.createAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.createAccount.Location = new System.Drawing.Point(0, 528);
+            this.createAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.createAccount.Name = "createAccount";
+            this.createAccount.Size = new System.Drawing.Size(1652, 122);
+            this.createAccount.TabIndex = 1;
+            this.createAccount.Text = "自動產生帳戶資訊";
+            this.createAccount.UseVisualStyleBackColor = true;
+            this.createAccount.Click += new System.EventHandler(this.createAccount_Click);
             // 
             // rowIndex
             // 
@@ -166,25 +182,20 @@ namespace AutomaticGenerator
             this.register.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.register.Text = "註冊";
             // 
-            // createAccount
+            // deletion
             // 
-            this.createAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.createAccount.Location = new System.Drawing.Point(0, 528);
-            this.createAccount.Margin = new System.Windows.Forms.Padding(4);
-            this.createAccount.Name = "createAccount";
-            this.createAccount.Size = new System.Drawing.Size(1552, 122);
-            this.createAccount.TabIndex = 1;
-            this.createAccount.Text = "自動產生帳戶資訊";
-            this.createAccount.UseVisualStyleBackColor = true;
-            this.createAccount.Click += new System.EventHandler(this.createAccount_Click);
+            this.deletion.HeaderText = "刪除";
+            this.deletion.MinimumWidth = 6;
+            this.deletion.Name = "deletion";
+            this.deletion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.deletion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.deletion.Width = 125;
             // 
             // GeneratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1554, 651);
+            this.ClientSize = new System.Drawing.Size(1654, 651);
             this.Controls.Add(this.createAccount);
             this.Controls.Add(this.dgvGeneratorMember);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -213,6 +224,7 @@ namespace AutomaticGenerator
         private System.Windows.Forms.DataGridViewTextBoxColumn month;
         private System.Windows.Forms.DataGridViewTextBoxColumn day;
         private System.Windows.Forms.DataGridViewButtonColumn register;
+        private System.Windows.Forms.DataGridViewButtonColumn deletion;
     }
 }
 

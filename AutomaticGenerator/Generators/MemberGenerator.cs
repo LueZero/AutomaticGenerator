@@ -51,6 +51,11 @@ namespace AutomaticGenerator.Generators
         public abstract User GenerateUser(int sort);
 
         public abstract void Register(int index);
+
+        public void Delete(int index)
+        {
+            Users.RemoveAt(index);
+        }
     }
 }
 
