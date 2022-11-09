@@ -10,8 +10,6 @@ namespace AutomaticGenerator.Models.Generators.FaceBook
 {
     public class User
     {
-        public int Index { get; set; }
-
         public string LastName { get; set; }
 
         public string FirstName { get; set; }

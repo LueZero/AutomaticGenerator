@@ -29,10 +29,7 @@ namespace AutomaticGenerator.Generators
             this.Users = new List<User>();
         }
 
-        public User GenerateUser()
-        {
-            return new User();
-        }
+        public abstract User GenerateUser();
 
         public DateTime GenerateRandomDate(int limitAge, int start = 1905)
         {
@@ -47,8 +44,6 @@ namespace AutomaticGenerator.Generators
 
             return randomDate;
         }
-
-        public abstract User GenerateUser(int sort);
 
         public abstract void Register(int index);
 

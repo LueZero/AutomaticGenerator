@@ -20,16 +20,16 @@ namespace AutomaticGenerator.Generators
         {
         }
 
-        public override User GenerateUser(int index)
+        public override User GenerateUser()
         {
+            var user = new User();
+
             var lastName = personNameGenerator.GenerateRandomLastName();
             var firstName = personNameGenerator.GenerateRandomFirstName();
-
             var email = tempMailService.GetCryptogSecMailbox();
-            var user = GenerateUser();
+            
             var date = GenerateRandomDate(18, 1993);
 
-            user.Index = index;
             user.LastName = lastName;
             user.FirstName = firstName;
             user.Sex = SexType.男性;

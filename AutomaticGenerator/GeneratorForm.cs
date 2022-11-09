@@ -17,25 +17,21 @@ namespace AutomaticGenerator
 {
     public partial class GeneratorForm : Form
     {
-        private MemberGenerator memberGenerator;
+        private MemberGenerator _memberGenerator;
 
         private JsonStream _jsonStream;
 
-        public GeneratorForm()
+        public GeneratorForm(MemberGenerator memberGenerator, JsonStream jsonStream)
         {
             InitializeComponent();
-            Initialize();
-        }
-
-        private void Initialize()
-        {
-            memberGenerator = new FaceBook(new TempMailService(), new PersonNameGenerator(), new Chrome());
-            _jsonStream = new JsonStream("D:\\AutomaticGenerator\\AutomaticGenerator\\Data\\UserInformation.json");
+            
+            _memberGenerator = memberGenerator;
+            _jsonStream = jsonStream;
         }
 
         public void GeneratorMemberCell(int index, User user)
         {
-            dgvGeneratorMember.Rows[index].Cells["rowIndex"].Value = user.Index;
+            dgvGeneratorMember.Rows[index].Cells["rowIndex"].Value = index + 1;
             dgvGeneratorMember.Rows[index].Cells["lastName"].Value = user.LastName;
             dgvGeneratorMember.Rows[index].Cells["firstName"].Value = user.FirstName;
             dgvGeneratorMember.Rows[index].Cells["email"].Value = user.Email;
@@ -52,9 +48,9 @@ namespace AutomaticGenerator
 
         private void InitializeDgvGeneratorMember()
         {
-            if (memberGenerator.Users.Count != 0)
+            if (_memberGenerator.Users.Count != 0)
             {
-                foreach (var user in memberGenerator.Users)
+                foreach (var user in _memberGenerator.Users)
                 {
                     var index = dgvGeneratorMember.Rows.Add();
                     GeneratorMemberCell(index, user);
@@ -67,7 +63,7 @@ namespace AutomaticGenerator
             var readAsync = _jsonStream.ReadToEndAsync();
 
             // 取得非同步工作的結果。
-            memberGenerator.Users = _jsonStream.ConvertJsonList<User>(await readAsync);
+            _memberGenerator.Users = _jsonStream.ConvertJsonList<User>(await readAsync);
 
             InitializeDgvGeneratorMember();
         }
@@ -75,8 +71,12 @@ namespace AutomaticGenerator
         private void createAccount_Click(object sender, EventArgs e)
         {
             var index = dgvGeneratorMember.Rows.Add();
-            var user = memberGenerator.GenerateUser(index + 1);
-            GeneratorMemberCell(index, user);
+            var user = _memberGenerator.GenerateUser();
+
+            dgvGeneratorMember.Rows.Clear();
+            dgvGeneratorMember.Refresh();
+
+            InitializeDgvGeneratorMember();
         }
 
         private void dgvGeneratorMember_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -85,19 +85,24 @@ namespace AutomaticGenerator
                 return;
 
             if (e.ColumnIndex == 11)
-                memberGenerator.Register(e.RowIndex);
+                _memberGenerator.Register(e.RowIndex);
 
             if (e.ColumnIndex == 12)
             {
                 dgvGeneratorMember.Rows.RemoveAt(e.RowIndex);
 
-                memberGenerator.Delete(e.RowIndex);
+                _memberGenerator.Delete(e.RowIndex);
+
+                dgvGeneratorMember.Rows.Clear();
+                dgvGeneratorMember.Refresh();
+
+                InitializeDgvGeneratorMember();
             }
         }
 
         private void GeneratorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _jsonStream.Write(JsonConvert.SerializeObject(memberGenerator.Users));
+            _jsonStream.Write(JsonConvert.SerializeObject(_memberGenerator.Users));
         }
     }
 }
