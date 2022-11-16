@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace AutomaticGenerator.Mails
 {
-    class OneSecMail
+    class OneSecMail : IMail
     {
         protected string baseUrl = "https://www.1secmail.com";
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AutomaticGenerator.Mails
 {
-    class CryptogMail
+    class CryptogMail : IMail
     {
         protected string baseUrl = "https://cryptogmail.com";
 
@@ -37,7 +37,7 @@ namespace AutomaticGenerator.Mails
             return domains.Domains;
         }
 
-        public Messages GgetMessages(string inbox = "agawagwagawg@vintomaper.com")
+        public Messages GetMessages(string inbox = "agawagwagawg@vintomaper.com")
         {
             HttpResponseMessage response = client.GetAsync(baseUrl + "/api/emails/?action=getMessages&inbox=" + inbox).Result;
 
