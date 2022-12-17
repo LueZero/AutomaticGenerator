@@ -10,7 +10,6 @@ namespace AutomaticGenerator
     public class TempMailService
     {
         private OneSecMail _oneSecMail;
-
         private CryptogMail _cryptogMail;
 
         public TempMailService()
@@ -27,6 +26,13 @@ namespace AutomaticGenerator
         public string GetCryptogSecMailbox()
         {
             return _cryptogMail.GetMailbox();
+        }
+
+        public void GetCryptogMessages(string email)
+        {
+            var result =  _cryptogMail.GetMessages(email);
+
+            var datat = result.Data;
         }
     }
 }

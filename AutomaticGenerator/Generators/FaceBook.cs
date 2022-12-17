@@ -95,5 +95,11 @@ namespace AutomaticGenerator.Generators
             IWebElement webSubmitElement = driver.FindElement(By.XPath("//button[@name='websubmit']"));
             webSubmitElement.Click();
         }
+
+
+        public override void Verify()
+        {
+            tempMailService.GetCryptogMessages("vebejagav.namufivo@mentonit.net");
+        }
     }
 }

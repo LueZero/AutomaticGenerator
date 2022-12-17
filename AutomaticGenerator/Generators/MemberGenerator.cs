@@ -47,6 +47,8 @@ namespace AutomaticGenerator.Generators
 
         public abstract void Register(int index);
 
+        public abstract void Verify();
+
         public void Delete(int index)
         {
             Users.RemoveAt(index);
