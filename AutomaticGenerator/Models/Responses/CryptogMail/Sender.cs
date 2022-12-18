@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutomaticGenerator.Models.Responses.CryptogMail
 {
-    class Sender
+    public class Sender
     {
         public string Id { get; set; }
 

@@ -26,7 +26,7 @@ namespace AutomaticGenerator.Generators
 
             var lastName = personNameGenerator.GenerateRandomLastName();
             var firstName = personNameGenerator.GenerateRandomFirstName();
-            var email = tempMailService.GetCryptogSecMailbox();
+            var email = tempMailService.GetMailbox();
             
             var date = GenerateRandomDate(18, 1993);
 
@@ -99,7 +99,7 @@ namespace AutomaticGenerator.Generators
 
         public override void Verify()
         {
-            tempMailService.GetCryptogMessages("vebejagav.namufivo@mentonit.net");
+            var messages = tempMailService.GetMessages(inbox: "vebejagav.namufivo@mentonit.net");
         }
     }
 }

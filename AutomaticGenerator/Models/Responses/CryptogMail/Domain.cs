@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutomaticGenerator.Models.Responses.CryptogMail
 {
-    class Domain
+    public class Domain
     {
         public List<string> Domains { get; set; }
     }

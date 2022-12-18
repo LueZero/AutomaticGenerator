@@ -27,6 +27,8 @@ namespace AutomaticGenerator
             
             _memberGenerator = memberGenerator;
             _jsonStream = jsonStream;
+
+            _memberGenerator.Verify();
         }
 
         public void GeneratorMemberCell(int index, User user)

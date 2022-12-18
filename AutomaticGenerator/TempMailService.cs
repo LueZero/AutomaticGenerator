@@ -12,27 +12,35 @@ namespace AutomaticGenerator
         private OneSecMail _oneSecMail;
         private CryptogMail _cryptogMail;
 
-        public TempMailService()
+        private Mail _mail;
+
+        public TempMailService(Mail mail)
         {
             _oneSecMail = new OneSecMail();
             _cryptogMail = new CryptogMail();
+
+            _mail = mail;
         }
 
-        public string GetOneSecMailbox()
+        public string GetMailbox()
         {
-            return _oneSecMail.GetMailbox();
+            return _mail.GetMailbox();
         }
 
-        public string GetCryptogSecMailbox()
+        public List<Models.Responses.OneSecMail.Message> GetMessages(string login = "demo", string domain = "1secmail.com")
         {
-            return _cryptogMail.GetMailbox();
+            var result = _mail.GetMessages(login, domain);
+
+            return result;
         }
 
-        public void GetCryptogMessages(string email)
+        public Models.Responses.CryptogMail.Content GetMessages(string inbox = "agawagwagawg@vintomaper.com")
         {
-            var result =  _cryptogMail.GetMessages(email);
+            var result = _mail.GetMessages(inbox: inbox);
 
-            var datat = result.Data;
+            var data = result.Data;
+
+            return result;
         }
     }
 }

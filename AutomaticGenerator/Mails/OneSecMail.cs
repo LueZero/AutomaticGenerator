@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace AutomaticGenerator.Mails
 {
-    class OneSecMail : IMail
+    public class OneSecMail : Mail
     {
         protected string baseUrl = "https://www.1secmail.com";
 
@@ -17,12 +17,12 @@ namespace AutomaticGenerator.Mails
 
         public OneSecMail()
         {
-            //https://github.com/riz4d/TempMail-Bot/blob/main/main.py
+            //example : https://github.com/riz4d/TempMail-Bot/blob/main/main.py
 
             client = new HttpClient();
         }
     
-        public string GetMailbox()
+        public override string GetMailbox()
         {
             var jsonString = JsonConvert.SerializeObject(new { });
              
@@ -38,7 +38,7 @@ namespace AutomaticGenerator.Mails
             return result.FirstOrDefault();
         }
 
-        public List<Message> GetMessages(string login = "demo ", string domain = "1secmail.com")
+        public override List<Message> GetMessages(string login = "demo", string domain = "1secmail.com")
         {
             HttpResponseMessage response = client.GetAsync(baseUrl + "/api/v1/?action=getMessages&login=" + login + "&domain="+ domain).Result;
 
