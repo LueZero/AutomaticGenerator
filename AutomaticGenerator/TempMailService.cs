@@ -9,16 +9,10 @@ namespace AutomaticGenerator
 {
     public class TempMailService
     {
-        private OneSecMail _oneSecMail;
-        private CryptogMail _cryptogMail;
-
         private Mail _mail;
 
         public TempMailService(Mail mail)
         {
-            _oneSecMail = new OneSecMail();
-            _cryptogMail = new CryptogMail();
-
             _mail = mail;
         }
 
