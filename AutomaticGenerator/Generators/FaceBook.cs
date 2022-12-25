@@ -103,10 +103,14 @@ namespace AutomaticGenerator.Generators
             }
         }
 
-
         public override void Verify()
         {
             var messages = tempMailService.GetMessages(inbox: "vebejagav.namufivo@mentonit.net");
+
+            if (messages is Models.Responses.CryptogMail.Content && messages.Data != null && messages.Data.Length > 0)
+            {
+                // todo verify mail message
+            }
         }
     }
 }
