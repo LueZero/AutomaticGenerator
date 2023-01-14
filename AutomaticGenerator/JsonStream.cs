@@ -1,4 +1,4 @@
-﻿using AutomaticGenerator.Models.Generators.FaceBook;
+﻿using AutomaticGenerator.Models.Generators.FaceBooks;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

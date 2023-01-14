@@ -1,6 +1,6 @@
 ﻿using AutomaticGenerator.Generators;
 using AutomaticGenerator.Helpers;
-using AutomaticGenerator.Models.Generators.FaceBook;
+using AutomaticGenerator.Models.Generators.FaceBooks;
 using Newtonsoft.Json;
 using RandomNameGeneratorLibrary;
 using System;

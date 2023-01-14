@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomaticGenerator.Models.Generators.FaceBook
+namespace AutomaticGenerator.Models.Generators.FaceBooks
 {
     public class User
     {

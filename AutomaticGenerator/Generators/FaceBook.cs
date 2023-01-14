@@ -1,6 +1,6 @@
 ﻿using AutomaticGenerator.Enums;
 using AutomaticGenerator.Helpers;
-using AutomaticGenerator.Models.Generators.FaceBook;
+using AutomaticGenerator.Models.Generators.FaceBooks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
