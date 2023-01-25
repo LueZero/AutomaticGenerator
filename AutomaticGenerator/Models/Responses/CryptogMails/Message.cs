@@ -4,18 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomaticGenerator.Models.Responses.CryptogMail
+namespace AutomaticGenerator.Models.Responses.CryptogMails
 {
-    public class Sender
+    public class Message
     {
         public string Id { get; set; }
 
-        public string Display_Name { get; set; }
+        public Sender Sender { get; set; }
 
-        public string Email { get; set; }
+        public string Subject { get; set; }
 
         public string Created_At { get; set; }
-
-        public string Updated_At { get; set; }
     }
 }

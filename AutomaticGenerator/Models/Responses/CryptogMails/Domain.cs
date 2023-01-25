@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomaticGenerator.Models.Responses.CryptogMail
+namespace AutomaticGenerator.Models.Responses.CryptogMails
 {
     public class Domain
     {

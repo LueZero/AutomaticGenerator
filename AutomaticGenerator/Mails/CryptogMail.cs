@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using AutomaticGenerator.Helpers;
-using AutomaticGenerator.Models.Responses.CryptogMail;
+using AutomaticGenerator.Models.Responses.CryptogMails;
 using Newtonsoft.Json;
 
 namespace AutomaticGenerator.Mails

@@ -28,7 +28,7 @@ namespace AutomaticGenerator
             return result;
         }
 
-        public Models.Responses.CryptogMail.Content GetMessages(string inbox = "agawagwagawg@vintomaper.com")
+        public Models.Responses.CryptogMails.Content GetMessages(string inbox = "agawagwagawg@vintomaper.com")
         {
             var result = _mail.GetMessages(inbox: inbox);
 

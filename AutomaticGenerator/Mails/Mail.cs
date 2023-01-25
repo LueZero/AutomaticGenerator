@@ -15,9 +15,9 @@ namespace AutomaticGenerator.Mails
             return new List<Models.Responses.OneSecMail.Message>();
         }
 
-        public virtual Models.Responses.CryptogMail.Content GetMessages(string inbox)
+        public virtual Models.Responses.CryptogMails.Content GetMessages(string inbox)
         {
-            return new Models.Responses.CryptogMail.Content();
+            return new Models.Responses.CryptogMails.Content();
         }
     }
 }
