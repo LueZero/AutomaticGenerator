@@ -12,13 +12,9 @@ namespace AutomaticGenerator.Mails
 {
     public class CryptogMail : Mail
     {
-        protected string baseUrl = "https://cryptogmail.com";
-
-        public readonly HttpClient client;
-
         public CryptogMail()
-        {
-            client = new HttpClient();
+        {            
+            BaseUrl = "https://cryptogmail.com";
         }
 
         public override string GetMailbox()
@@ -28,7 +24,7 @@ namespace AutomaticGenerator.Mails
 
         public List<string> GetDomains()
         {
-            HttpResponseMessage response = client.GetAsync(baseUrl + "/api/domains.config.json").Result;
+            HttpResponseMessage response = Client.GetAsync(BaseUrl + "/api/domains.config.json").Result;
 
             var responseBody = response.Content.ReadAsStringAsync().Result;
 
@@ -39,7 +35,7 @@ namespace AutomaticGenerator.Mails
 
         public override Content GetMessages(string inbox = "agawagwagawg@vintomaper.com")
         {
-            HttpResponseMessage response = client.GetAsync(baseUrl + "/api/emails/?action=getMessages&inbox=" + inbox).Result;
+            HttpResponseMessage response = Client.GetAsync(BaseUrl + "/api/emails/?action=getMessages&inbox=" + inbox).Result;
 
             var responseBody = response.Content.ReadAsStringAsync().Result;
 
@@ -48,7 +44,7 @@ namespace AutomaticGenerator.Mails
 
         public string GetEmailContent(string id = "ee67caa8-0b87-4e29-9a88-616215670d20")
         {
-            HttpResponseMessage response = client.GetAsync(baseUrl + "/api/emails/" + id).Result;
+            HttpResponseMessage response = Client.GetAsync(BaseUrl + "/api/emails/" + id).Result;
 
             var responseBody = response.Content.ReadAsStringAsync().Result;
 

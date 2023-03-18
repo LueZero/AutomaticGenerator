@@ -24,9 +24,9 @@ namespace AutomaticGenerator.Generators
         {
             var user = new User();
 
-            var lastName = personNameGenerator.GenerateRandomLastName();
-            var firstName = personNameGenerator.GenerateRandomFirstName();
-            var email = tempMailService.GetMailbox();
+            var lastName = PersonNameGenerator.GenerateRandomLastName();
+            var firstName = PersonNameGenerator.GenerateRandomFirstName();
+            var email = TempMailService.GetMailbox();
             
             var date = GenerateRandomDate(18, 1993);
 
@@ -52,7 +52,7 @@ namespace AutomaticGenerator.Generators
             {
                 var user = Users[index];
 
-                var driver = chrome.SetChromeDriver().GetDriver();
+                var driver = Chrome.SetChromeDriver().GetDriver();
 
                 driver.Manage().Window.Maximize();
                 driver.Navigate().GoToUrl("https://www.facebook.com/campaign/landing.php");
@@ -105,7 +105,7 @@ namespace AutomaticGenerator.Generators
 
         public override void Verify()
         {
-            var messages = tempMailService.GetMessages(inbox: "vebejagav.namufivo@mentonit.net");
+            var messages = TempMailService.GetMessages(inbox: "vebejagav.namufivo@mentonit.net");
 
             if (messages is Models.Responses.CryptogMails.Content && messages.Data != null && messages.Data.Length > 0)
             {

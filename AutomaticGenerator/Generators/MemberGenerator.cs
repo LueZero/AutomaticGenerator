@@ -11,21 +11,21 @@ namespace AutomaticGenerator.Generators
 {
     public abstract class MemberGenerator
     {
-        protected TempMailService tempMailService;
+        protected TempMailService TempMailService;
 
-        protected PersonNameGenerator personNameGenerator;
+        protected PersonNameGenerator PersonNameGenerator;
 
-        protected Random gen = new Random();
+        protected Random Gen = new Random();
 
-        protected Chrome chrome;
+        protected Chrome Chrome;
 
         public List<User> Users;
 
         public MemberGenerator(TempMailService tempMailService, PersonNameGenerator personNameGenerator, Chrome chrome)
         {
-            this.tempMailService = tempMailService;
-            this.chrome = chrome;
-            this.personNameGenerator = personNameGenerator;
+            this.TempMailService = tempMailService;
+            this.Chrome = chrome;
+            this.PersonNameGenerator = personNameGenerator;
             this.Users = new List<User>();
         }
 
@@ -37,7 +37,7 @@ namespace AutomaticGenerator.Generators
 
             int range = (DateTime.Today - startDate).Days;
 
-            var randomDate = startDate.AddDays(gen.Next(range));
+            var randomDate = startDate.AddDays(Gen.Next(range));
 
             if (((int)DateTime.Today.Year - (int)randomDate.Year) < limitAge)
                 return GenerateRandomDate(limitAge);
