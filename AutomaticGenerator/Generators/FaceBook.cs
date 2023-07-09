@@ -46,7 +46,7 @@ namespace AutomaticGenerator.Generators
             return user;
         }
 
-        public override void Register(int index)
+        public override async Task Register(int index)
         {
             try
             {

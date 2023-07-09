@@ -87,8 +87,8 @@ namespace AutomaticGenerator
                 return;
 
             if (e.ColumnIndex == 11)
-                _memberGenerator.Register(e.RowIndex);
-
+                Task.Run(() => _memberGenerator.Register(e.RowIndex));
+            
             if (e.ColumnIndex == 12)
             {
                 dgvGeneratorMember.Rows.RemoveAt(e.RowIndex);

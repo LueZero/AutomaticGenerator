@@ -45,7 +45,7 @@ namespace AutomaticGenerator.Generators
             return randomDate;
         }
 
-        public abstract void Register(int index);
+        public abstract Task Register(int index);
 
         public abstract void Verify();
 
