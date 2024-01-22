@@ -14,9 +14,9 @@ using System.Threading.Tasks;
 
 namespace AutomaticGenerator.Generators
 {
-    public class FaceBook : MemberGenerator
+    public class FaceBookGenerator : MemberGenerator
     {
-        public FaceBook(TempMailService tempMailService, PersonNameGenerator personNameGenerator, Chrome chrome) : base(tempMailService, personNameGenerator, chrome)
+        public FaceBookGenerator(TempMailService tempMailService, PersonNameGenerator personNameGenerator, Chrome chrome) : base(tempMailService, personNameGenerator, chrome)
         {
         }
 

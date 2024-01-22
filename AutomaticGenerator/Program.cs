@@ -36,7 +36,7 @@ namespace AutomaticGenerator
         private static void ConfigureServices(ServiceCollection services)
         {
             services.AddScoped<GeneratorForm>()
-                    .AddScoped<MemberGenerator>(x => new FaceBook(new TempMailService(new CryptogMail()), new PersonNameGenerator(), new Chrome()))
+                    .AddScoped<MemberGenerator>(x => new FaceBookGenerator(new TempMailService(new CryptogMail()), new PersonNameGenerator(), new Chrome()))
                     .AddScoped<JsonStream>(x => new JsonStream("D:\\AutomaticGenerator\\AutomaticGenerator\\Data\\UserInformation.json"));
         }
     }
